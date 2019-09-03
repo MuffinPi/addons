@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="plugin.video.youtubelibrary" name="Youtube Library" version="0.9.9.1" provider-name="sleuteltje">
+    <requires>
+		<import addon="xbmc.python" version="2.14.0"/>
+		<import addon="script.module.oauth2client" version="1.4.7"/>
+		<import addon="script.module.googleapi"   version="1.6.4"/>
+        <import addon="script.module.youtube.dl" version="17.709.0" optional="false"/>
+        <import addon="script.module.beautifulsoup" version="3.2.1" optional="false"/>
+        <import addon="script.module.requests" version="2.9.1" optional="false"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="login" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Youtube Library</summary>
+		<summary lang="nl">Youtube Library</summary>
+		<description lang="en">Allows you to add Youtube Channels / Playlists as TV shows in your Library. It will automatically add new videos as new episodes into your library, complete with metadata!</description>
+		<description lang="nl">Stelt je in staat Youtube kanalen / playlists als TV Shows in je bibliotheek toe te voegen. Nieuwe videos worden automatisch als nieuwe afleveringen in de bibliotheek toegevoegd, compleet met metadata!</description>
+		<license>GNU General Public License, v2</license>
+		<language></language>
+		<forum>http://forum.kodi.tv/showthread.php?tid=209948</forum>
+		<source>https://bitbucket.org/Sleuteltje/plugin.video.youtubelibrary</source>
+		<email>mailsleuteltje [at] gmail [dot] com</email>
+		<website>http://youtubelibrary.nl</website>
+	</extension>
+</addon>
+
+<addon id="repository.jsergio" name="jsergio repo" version="1.0.3" provider-name="jsergio">
+	<extension point="xbmc.addon.repository" name="jsergio repo">
+        <dir>
+            <info compressed="false">https://raw.github.com/ddurdle/repository.ddurdle/master/addons.xml</info>
+            <checksum>https://raw.github.com/ddurdle/repository.ddurdle/master/addons.xml.md5</checksum>
+            <datadir zip="true">http://dmdsoftware.net/repository.ddurdle/</datadir>
+        </dir>
+        <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Repo for jsergio Add-ons</summary>
+		<description>Repo for jsergio Add-ons</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.ccloud" name="cCloud Repo" version="1.0" provider-name="Bane">
+	<extension point="xbmc.addon.repository" name="cCloud Addon Repository">
+        <dir>
+					<info compressed="false">https://github.com/darknessally/tva-resolvers-repo/raw/master/addons.xml</info>
+	        <checksum>https://github.com/darknessally/tva-resolvers-repo/raw/master/addons.xml.md5</checksum>
+	        <datadir zip="true">https://github.com/darknessally/tva-resolvers-repo/raw/master/zips/</datadir>
+				</dir>
+        <info compressed="false">http://github.com/darknessally/firerises/raw/master/addons.xml</info>
+        <checksum>http://github.com/darknessally/firerises/raw/master/addons.xml.md5</checksum>
+        <datadir zip="true">http://github.com/darknessally/firerises/raw/master/zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>cCloud</summary>
+		<description>Official cCloud Repo with addons for official support please go to ccloudtv.org</description>
+		<license>http://www.gnu.org/licenses/</license>
+    <forum>http://ccloudtv.org/forum</forum>
+    <website>http://ccloudtv.org</website>
+    <website>http://facebook.com/ccloudapp</website>
+    <website>http://twitter.com/ccloudapp</website>
+    <email></email>
+    <platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.nixgates" name="Nixgates Repo" version="1.0.0" provider-name="Nixgates">
+	<extension point="xbmc.addon.repository" name="Nixgates Repo">
+		<info compressed="false">https://raw.githubusercontent.com/nixgates/nixgates/master/packages/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/nixgates/nixgates/master/packages/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/nixgates/nixgates/master/packages</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Nixgates</summary>
+		<description>Nixgates Repository</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.xbmchub" name="TVADDONS.CO Add-on Repository" version="3.0.0" provider-name="tvaddons">
+	<extension point="xbmc.addon.repository" name="TVADDONS.CO Add-on Repository">
+	<dir>
+		<info compressed="false">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml</info>
+		<checksum>https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/zips/</datadir>
+	</dir>
+
+    <dir>
+		<info compressed="false">https://github.com/tvaddonsco/tva-release-repo/raw/master/addons.xml</info>
+		<checksum>https://github.com/tvaddonsco/tva-release-repo/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/tvaddonsco/tva-release-repo/raw/master/</datadir>
+    </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Unofficial Kodi Addons from TVADDONS.CO</summary>
+		<description>Unofficial Kodi Addons from the TVADDONS.CO Add-on Repository. Please visit www.tvaddons.co for support!
+
+Kodi is a registered trademark of the XBMC Foundation. We are not connected to or in any other way affiliated with Kodi, Team Kodi, or the XBMC Foundation.</description>
+         <disclaimer>TVADDONS.CO did not make all the add-ons in this repository and is not responsible for their content.</disclaimer>
+		<platform>all</platform>
+                <forum>https://www.tvaddons.co/forums</forum>
+                <website>https://www.tvaddons.co</website>
+	</extension>
+</addon>
+
+<addon id="repository.auramod" version="1.0.1" name="Auramod BETA repository" provider-name="skyfsza">
+
+	<extension point="xbmc.addon.repository" name="Auramod BETA repository">
+		<info compressed="false">https://raw.githubusercontent.com/skyfsza/repository.auramod/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/skyfsza/repository.auramod/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/skyfsza/repository.auramod/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Kodi repository for beta/test versions of the Auramod Skin</summary>
+		<description lang="en">Kodi repository for beta/test versions of the Auramod Skin. This repo is for test/beta versions of my work only</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.frenchdj" name="frenchdj repository" version="0.0.2" provider-name="frenchdj">
+	<extension point="xbmc.addon.repository" name="frenchdj Add-on Repository">
+		<info compressed="false">https://raw.githubusercontent.com/frenchdj/repository.frenchdj/master/_repo/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/frenchdj/repository.frenchdj/master/_repo/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/frenchdj/repository.frenchdj/master/_repo/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>frenchdj repository</summary>
+		<description>frenchdj addons repository</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.exodusredux" name="Exodus Redux Repo" version="0.0.8" provider-name="I-A-C">
+	<extension point="xbmc.addon.repository" name="Exodus Redux Repo">
+	<dir>
+        <info compressed="false">https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/I-A-C/zips/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/I-A-C/zips/master/</datadir>
+	</dir>
+    <dir>
+        <info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/</datadir>
+    </dir>
+	<dir>
+		<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+	</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Exodus Redux is a educational add-on. We do not host any of the contents streamed.</summary>
+		<description lang="en"></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.kodinerds" name="Kodinerds Add-ons" version="9.0.103.103" provider-name="Kodinerds.net">
+  <requires>
+    <import addon="xbmc.addon" version="12.0.0"/>
+  </requires>
+  <extension point="xbmc.addon.repository" name="L0RE">
+    <info compressed="true">https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml</info>
+    <checksum>https://raw.githubusercontent.com/kodinerds/repo/master/addons.xml.md5</checksum>
+    <datadir zip="true">https://raw.githubusercontent.com/kodinerds/repo/master/</datadir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Install add-ons from Kodinerds</summary>
+    <summary lang="de">Installiere Add-ons von Kodinerds</summary>
+    <description>Download and install add-ons from Kodinerds repository.</description>
+    <description lang="de">Downloade und installiere Add-ons von der Kodinerds Repository.</description>
+    <disclaimer/>
+    <platform>all</platform>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="repository.marcelveldt" version="1.0.1" name="Marcelveldt's BETA repository" provider-name="marcelveldt">
+
+	<extension point="xbmc.addon.repository" name="Marcelveldt's BETA repository">
+		<info compressed="false">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Kodi repository for beta/test versions of Marcelveldt's addons</summary>
+		<description lang="en">Kodi repository for beta/test versions of Marcelveldt's addons, for stable versions please just use the official Kodi repository. This repo is for test/beta versions of my work only</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="plugin.video.watchnixtoons2" name="WatchNixtoons2" version="0.3.5" provider-name="doko">
+    <requires>
+        <import addon="xbmc.python" version="2.20.0"/>
+        <import addon="script.module.requests"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="Default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <news>
+[COLOR orange][B]WatchNixtoons2[/B][/COLOR] - Cartoons &amp; Anime
+[B]0.3.5:[/B]
+- Fixed the Episode and Movie searches, the results are now playable.
+- Added the "Always Show Multi-chapter Dialog" setting, for use w/ shows that split episodes in parts.
+- Improved the Trakt listings, they now support movies, shows, seasons and episodes.
+
+[B]0.3.4:[/B]
+- Added a simple search history feature, see Search -> "Search History" menu.
+
+[B]0.3.3:[/B]
+- Fixed the Trakt "liked" list display.
+
+[B]0.3.2:[/B]
+- Fixed a fault in the stream getting logic.
+
+[B]0.3.1:[/B]
+- Fixed a new way of getting video streams.
+- Added "liked" lists to the Trakt search (besides your own lists).
+        </news>
+        <description lang="en">
+Watch cartoons and anime from [COLOR orange][B]WatchCartoonOnline.io[/B][/COLOR].
+
+Support the WatchCartoonOnline website with a PayPal donation to:
+[COLOR khaki][B]wcohelp@yandex.com[/B][/COLOR]
+
+Add-on by doko.
+        </description>
+        <platform lang="en">all</platform>
+        <disclaimer lang="en">The authors of this addon do not host any of the content found or have any affiliation with the content providers. This add-on only scrapes web pages.</disclaimer>
+    </extension>
+</addon>
+
+<addon id="repository.muffinpi" name="MuffinPi Repository" version="1.0" provider-name="MuffinPi">
+    <extension point="xbmc.addon.repository" name="MuffinPi Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/MuffinPi/addons/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/MuffinPi/addons/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/MuffinPi/addons/raw/master/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>MuffinPi Repository</summary>
+        <description>[B]Home of [COLOR yellow]P[/COLOR][COLOR lime]i[/COLOR][COLOR deepskyblue]B[/COLOR][COLOR blueviolet]o[/COLOR][COLOR red]X[/COLOR] and [COLOR deeppink]Muffin[/COLOR][COLOR lime]Wizard[/COLOR] Custom Builds[/B]</description>
+        <disclaimer>The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon. The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation. This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+
+<addon id="plugin.program.muffinwizard" name="Muffin Wizard" version="0.2.2" provider-name="MuffinPi">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="startup.py" start="startup" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Muffi'n Wizard</summary>
+    <description lang="en">[B][COLOR deeppink]Muffin[/COLOR][COLOR lime]Wizard[/COLOR] allows you to get access to the latest [COLOR yellow]P[/COLOR][COLOR lime]i[/COLOR][COLOR deepskyblue]B[/COLOR][COLOR indigo]o[/COLOR][COLOR red]X[/COLOR] Custom Builds[/B].</description>
+    <disclaimer>The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon. The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation. This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.openmeta" name="OpenMeta Repository" version="1.3" provider-name="A4K">
+	<extension point="xbmc.addon.repository" name="OpenMeta Repository">
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/drinfernoo/repository.openmeta/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/drinfernoo/repository.openmeta/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/drinfernoo/repository.openmeta/master/zips/</datadir>
+        </dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/</datadir>
+		</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>OpenMeta Repository</summary>
+		<description>The official home of OpenMeta and OpenInfo.</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.redditreaper" name="Reddit Reaper Repository" version="1.2" provider-name="Reddit Reaper">
+	<extension point="xbmc.addon.repository" name="Reddit Reaper Repository">
+		<info compressed="false">https://raw.githubusercontent.com/reddit-reaper/Addons/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/reddit-reaper/Addons/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/reddit-reaper/Addons/raw/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Reddit Reaper's Kodi Build Repository</summary>
+		<description>Reaper Builds</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.metalchris" name="MetalChris' Repository" version="3.2.7" provider-name="MetalChris">
+    <extension point="xbmc.addon.repository" name="Official MetalChris Repository">
+        <info compressed="false">http://raw.github.com/MetalChris/repository.metalchris/master/addons.xml</info>
+        <checksum>http://raw.github.com/MetalChris/repository.metalchris/master/addons.xml.md5</checksum>
+        <datadir zip="true">http://raw.github.com/MetalChris/repository.metalchris/master/zips</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+		<summary>MetalChris' Kodi addons</summary>
+		<description>Support provided at forum.kodi.tv or via my github.  I will not provide support at TVaddons, or any other forum.  Please provide a full, unedited, debug log when requesting support.</description>
+        <platform>all</platform>
+        <news>2019.02.02 - Update BigStar-Movies. 2019.02.02 - Remove broken addons that will not be fixed.</news>
+    </extension>
+</addon>
+
+<addon id="repository.jewrepo" name="[COLOR purple]JewRepo[/COLOR]" version="1.5.3" provider-name="JewBMX">
+    <requires>
+        <import addon="xbmc.addon" version="12.0.0"/>
+    </requires>
+    <extension point="xbmc.addon.repository" name="[COLOR purple]JewRepo[/COLOR]">
+        <info compressed="false">https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jewbmx/repo/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jewbmx/repo/master/zips/</datadir>
+        <hashes>false</hashes>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jewbmx/JewBackD/master/zips/</datadir>
+        </dir>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
+        </dir>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+        </dir>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+        </dir>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/</datadir>
+        </dir>
+        <dir>
+            <info compressed="false">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml</info>
+            <checksum>https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Free the People, Free the World!</summary>
+        <description>JewBMX's Official Repository</description>
+        <platform>all</platform>
+        <genre>movies,usa</genre>
+    </extension>
+</addon>
+
+<addon id="plugin.video.wonderfulsubs" name="WonderfulSubs : Anime Subs &amp; Dubs" provider-name="DxCx" version="0.0.25">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0" />
+    <import addon="script.module.requests" version="2.12.4" />
+    <import addon="script.module.beautifulsoup4" version="4.5.3" />
+    <import addon="script.common.plugin.cache" version="2.5.5" />
+    <import addon="script.module.inputstreamhelper" version="0.3.3" />
+  </requires>
+  <extension library="default.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">WonderfulSubs : Anime Subs &amp; Dubs</summary>
+    <description lang="en">HD Animes</description>
+    <source>https://github.com/DxCx/plugin.video.wonderfulsubs</source>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.zomboided.plugins" name="Zomboided Add-on Repository" version="1.0.0" provider-name="zomboided">
+    <extension point="xbmc.addon.repository" name="Zomboided Add-on Repository">
+        <info>https://raw.githubusercontent.com/zomboided/xbmc.zomboided.plugins/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/zomboided/xbmc.zomboided.plugins/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://github.com/zomboided/xbmc.zomboided.plugins/raw/master/plugins/</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en">Install add-ons from Zomboided repository</summary>
+        <description lang="en">Add-ons for Kodi</description>
+    </extension>
+</addon>
+
+<addon id="repository.aftermath" name="[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Repository" version="1.2" provider-name="drinfernoo">
+	<extension point="xbmc.addon.repository" name="[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Repository">
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/drinfernoo/repository.aftermath/master/zips/</datadir>
+        </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Repository</summary>
+		<description>The official home of the [B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard.</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="service.maxxam.teamwatch" name="TeamWatch" version="0.0.10" provider-name="MaXXaM">
+
+    <requires>
+        <import addon="xbmc.python" version="2.14.0"/>
+    </requires>
+
+    <extension point="xbmc.service" library="service.py"/>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">TeamWatch make your TV social.</summary>
+        <description lang="en">TeamWatch is a Kodi add-on that will change the way you watch TV, TV becomes 'social' allowing you to comment live with friends what you see on the screen. TeamWatch also gives you the opportunity to display on the TV screen tweets regarding the program you are watching!</description>
+        <disclaimer lang="en">GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</disclaimer>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="doko.repository" name="Doko Repository" version="0.1.0" provider-name="doko">
+    <extension point="xbmc.addon.repository" name="Doko Repository">
+        <info compressed="false">https://raw.githubusercontent.com/doko-desuka/doko.repository/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/doko-desuka/doko.repository/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/doko-desuka/doko.repository/master/</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Doko Kodi Add-ons</summary>
+        <description>Add-ons for Kodi</description>
+        <disclaimer></disclaimer>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="repository.skydarks" name="SkyDark Repository" version="7.1.7" provider-name="Team SkyDark">
+	<extension point="xbmc.addon.repository" name="Skydark's Repository">
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+		</dir>
+		    <dir>
+                <info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
+                <checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
+                <datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
+            </dir>
+		<info compressed="false">http://skydarks.com/skydarks/addons.xml</info>
+		<checksum>http://skydarks.com/skydarks/addons.xml.md5</checksum>
+		<datadir zip="true">http://skydarks.com/files/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary></summary>
+		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.xbmcadult" name="XBMC-Adult Addons" version="1.0.6" provider-name="xbmc-adult">
+	<extension point="xbmc.addon.repository" name="XBMC Adult Addons">
+		<info compressed="false">http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster/addons.xml</info>
+		<checksum>http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/xbmc-adult/xbmc-adult/ghmaster</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>XBMC Addons for Adults Only</summary>
+		<description>This repository contains addons that are for adults only. You may only view the contents of this repository if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this content.</description>
+		<disclaimer>The owners and submitters to this repository do not host or distribute any of the content displayed by these addons nor do they have any affiliation with the content providers.</disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.magicality" name="Magicality Repo" version="0.0.4" provider-name="Wilson Magic">
+	<extension point="xbmc.addon.repository" name="Magicality Repo">
+		<info compressed="false">https://raw.githubusercontent.com/Wilson-Magic/repository.magicality/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/Wilson-Magic/repository.magicality/master/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/Wilson-Magic/repository.magicality/master/zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Magicality</summary>
+		<description>Magicality - Home of Masterani Redux</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.openscrapers" name="OpenScrapers Repository" version="1.0" provider-name="A4K">
+	<extension point="xbmc.addon.repository" name="OpenScrapers Repository">
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/</datadir>
+        </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>OpenScrapers Repository</summary>
+		<description>The official repo for OpenScrapers!.</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon  id="plugin.video.retrospect"
+        version="4.1.8.9"
+        name="Retrospect"
+        provider-name="Bas Rieter">
+
+    <requires>
+        <import addon="xbmc.metadata" version="1.0" />
+        <import addon="xbmc.python" version="2.23.0" />
+        <import addon="script.module.requests" version="2.18.0" />
+        <import addon="inputstream.adaptive" version="2.0.19" />
+        <import addon="plugin.video.youtube" version="6.0.0" optional="true" />
+        <import addon="script.module.inputstreamhelper" version="0.3.3" />
+    </requires>
+
+    <extension  point="xbmc.python.pluginsource"
+                library="default.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.service" library="migrateservice.py" />
+
+
+    <extension point="kodi.context.item">
+        <menu id="kodi.core.main">
+            <item library="resources\menus\menu_queue.py">
+                <label>30541</label>
+                <visible>ListItem.Property(RetrospectVideo)|ListItem.Property(RetrospectFolder)</visible>
+            </item>
+
+            <item library="resources\menus\menu_refresh.py">
+                <label>30529</label>
+                <visible>ListItem.Property(RetrospectVideo)|ListItem.Property(RetrospectFolder)|ListItem.Property(RetrospectChannel)</visible>
+            </item>
+
+            <item library="resources\menus\menu_hide_channel.py">
+                <label>30574</label>
+                <visible>ListItem.Property(RetrospectChannel)</visible>
+            </item>
+
+            <item library="resources\menus\menu_cloak.py">
+                <label>30563</label>
+                <visible>ListItem.Property(RetrospectFolder)+!ListItem.Property(RetrospectCloaked)+!ListItem.Property(RetrospectFavorite)</visible>
+            </item>
+
+            <item library="resources\menus\menu_uncloak.py">
+                <label>30564</label>
+                <visible>ListItem.Property(RetrospectCloaked)</visible>
+            </item>
+
+            <!-- Favorites menu -->
+            <menu>
+                <label>30575</label>
+
+                <item library="resources\menus\menu_channel_favs.py">
+                    <label>30503</label>
+                    <visible>ListItem.Property(RetrospectVideo)|ListItem.Property(RetrospectFolder)|ListItem.Property(RetrospectChannel)</visible>
+                </item>
+
+                <item library="resources\menus\menu_all_favs.py">
+                    <label>30500</label>
+                    <visible>ListItem.Property(RetrospectChannel)</visible>
+                </item>
+
+                <item library="resources\menus\menu_add_fav.py">
+                    <label>30504</label>
+                    <visible>ListItem.Property(RetrospectFolder)+!ListItem.Property(RetrospectFavorite)</visible>
+                </item>
+
+                <item library="resources\menus\menu_remove_fav.py">
+                    <label>30506</label>
+                    <visible>ListItem.Property(RetrospectFavorite)</visible>
+                </item>
+            </menu>
+
+            <!-- Retrospect Menu -->
+            <menu>
+                <label>30572</label>
+
+                <item library="resources\menus\menu_bitrate.py">
+                    <label>30577</label>
+                    <visible>ListItem.Property(Retrospect)+!ListItem.Property(RetrospectCategory)</visible>
+                </item>
+
+                <item library="resources\menus\menu_channelsettings.py">
+                    <label>30069</label>
+                    <visible>ListItem.Property(RetrospectChannelSettings)+!ListItem.Property(RetrospectCategory)</visible>
+                </item>
+
+                <item library="resources\menus\menu_channel_selection.py">
+                    <label>30507</label>
+                    <visible>ListItem.Property(RetrospectChannel)</visible>
+                </item>
+
+                <item library="resources\menus\menu_country_selection.py">
+                    <label>30576</label>
+                    <visible>ListItem.Property(RetrospectChannel)</visible>
+                </item>
+
+                <item library="resources\menus\menu_settings.py">
+                    <label>30528</label>
+                    <visible>ListItem.Property(Retrospect)</visible>
+                </item>
+
+                <!--item library="resources\menus\menu_install_widevine.py">
+                    <label>30532</label>
+                    <visible>ListItem.Property(Retrospect)+System.HasAddon(inputstream.adaptive)+System.HasAddon(script.module.inputstreamhelper)</visible>
+                </item-->
+            </menu>
+        </menu>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <reuselanguageinvoker>true</reuselanguageinvoker>
+        <platform>all</platform>
+        <summary lang="en">Retrospect (previously XBMC Online TV) is a plugin that allows the playback of a lot of TV shows that are available (legally) via the broadcasters websites.</summary>
+        <description lang="en">Retrospect uses the official websites of a lot of different broadcasting companies (mainly Dutch, Belgian, British and Swedish) to make their re-run episodes available on the Kodi platform. More information can be found at www.rieter.net.[CR][CR]Retrospect reports back usage statistics to our servers. This option can be disabled from the add-on settings.</description>
+        <disclaimer lang="en">Retrospect is provided as is. We do not take any responsibility for possible (but highly unlikely) damage cause to your system. Nor do we take responsibility for the content that can be watched via this add-on.</disclaimer>
+        <language>en nl de se no lt lv fi</language>
+        <news>[B]Retrospect v4.1.8.9 - Changelog - 2019-03-16[/B]
+
+!! Due to the changing of the add-on ID, there is an extra add-on data migration step required. This happens as soon as you install the new version. !!
+
+[B]Framework related[/B]
+* Fixed: fromtimestamp issue with out of range timestamps (See #1136)
+
+[B]GUI/Settings/Language related[/B]
+-
+
+[B]Channel related[/B]
+* Fixed: timestamp issue with cookies in NPO Channel (Fixes #1136)
+* Fixed: For some NPO live streams the audio stops after some time (Fixes #1134)
+        </news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+
+<addon id="repository.gamestarter" name="Gamestarter add-on repository" version="3.0.0" provider-name="Bite Your Idols!">
+    <extension point="xbmc.addon.repository" name="Gamestarter add-on repository">
+        <info compressed="true">https://github.com/bite-your-idols/Gamestarter/raw/master/repository.gamestarter/addons.xml</info>
+        <checksum>https://github.com/bite-your-idols/Gamestarter/raw/master/repository.gamestarter/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/bite-your-idols/Gamestarter/master/repository.gamestarter/</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Gamestarter add-on repository</summary>
+		<description lang="en">Gamestarter add-on repository</description>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="repository.addons4kodi" name="Addons4Kodi Repository" version="1.3" provider-name="A4K">
+	<extension point="xbmc.addon.repository" name="Addons4Kodi Repository">
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.addons4kodi/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/a4k-openproject/repository.addons4kodi/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.addons4kodi/master/zips/</datadir>
+        </dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/</datadir>
+		</dir>
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/</datadir>
+        </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Addons4Kodi Repository</summary>
+		<description>The official repo of /r/Addons4Kodi!.</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="repository.kodiadult" name="TVADDONS.CO Adult 18+ Add-on Repository" version="1.0.0" provider-name="tvaddons">
+	<extension point="xbmc.addon.repository" name="TVADDONS.CO Adult 18+ Add-on Repository">
+	<dir>
+		<info compressed="false">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml</info>
+		<checksum>https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/zips/</datadir>
+	</dir>
+
+    <dir>
+		<info compressed="false">https://github.com/tvaddonsco/tva-adult-repo/raw/master/addons.xml</info>
+		<checksum>https://github.com/tvaddonsco/tva-adult-repo/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/tvaddonsco/tva-adult-repo/raw/master/</datadir>
+    </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Unofficial Adult 18+ Kodi Addons from TVADDONS.CO</summary>
+		<description>Unofficial Adult 18+ Kodi Addons from the TVADDONS.CO Add-on Repository. Please visit www.tvaddons.co for support!
+
+Kodi is a registered trademark of the XBMC Foundation. We are not connected to or in any other way affiliated with Kodi, Team Kodi, or the XBMC Foundation.</description>
+         <disclaimer>This Kodi addon contains age-restricted materials. By entering this Kodi addon, you swear under penalty of perjury that you are over the age of 18, and over the age of majority in the location from where you are accessing this Kodi addon.  If you are under the age of 18 years, or under the age of majority in the location from where you are accessing this Kodi addon, you do not have authorization or permission to use. TVADDONS.CO did not make all the add-ons in this repository and is not responsible for their content.</disclaimer>
+		<platform>all</platform>
+                <forum>https://www.tvaddons.co/forums</forum>
+                <website>https://www.tvaddons.co</website>
+	</extension>
+</addon>
+
+<addon id="repository.gaia" version="4.0.0" name="Gaia Repository" provider-name="Gaia">
+	<extension point="xbmc.addon.repository" name="Gaia Repository">
+		<dir>
+			<info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/common/addons.xml?v=4.0.0</info>
+			<checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/common/addons.xml.md5?v=4.0.0</checksum>
+			<datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/common/</datadir>
+		</dir>
+		<info compressed="false">https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml?v=4.0.0</info>
+		<checksum>https://github.com/gaiaorigin/gaiaorigin/raw/master/addons.xml.md5?v=4.0.0</checksum>
+		<datadir zip="true">https://github.com/gaiaorigin/gaiaorigin/raw/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Gaia Main Repository</summary>
+		<description lang="en">The Gaia repository for the addon, resources, extensions, and external addons. Any of the Gaia mirror repositories can be used for installation and updates.</description>
+		<disclaimer lang="en">Gaia and its developers are not in any way affiliated with Kodi, Premiumize, OffCloud, RealDebrid, EasyNews, Orion, or any of the sites and providers used in the addon.<br/>Gaia is and always will be free and open-source. None of its code and resources may be sold or redistributed for any commercial purposes.<br/>Gaia and its developers do not host, create, or distribute any of the content displayed in the addon, it simply searches public websites.</disclaimer>
+		<platform>all</platform>
+		<license>GPL 3.0</license>
+		<website>https://gaiakodi.com</website>
+		<forum>https://gaiakodi.com/?support</forum>
+	</extension>
+</addon>
+
+<addon id="repository.venom" name="[B][COLOR red]Venom[/COLOR] Repo[/B]" version="1.6" provider-name="Venom">
+	<extension point="xbmc.addon.repository" name="Venom Repo">
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/123Venom/zips/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/123Venom/zips/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/123Venom/zips/master/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/nixgates/nixgates/master/packages/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/nixgates/nixgates/master/packages/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/nixgates/nixgates/master/packages</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openmeta/master/zips/</datadir>
+		</dir>
+
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/</datadir>
+		</dir>
+
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">[B][COLOR red]Venom[/COLOR][/B] We do not host any of the contents streamed</summary>
+		<description lang="en">[B][COLOR red]Venom[/COLOR][/B] - This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels.The author does not host any of the content in this addon and takes no responsibility for content found.</description>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon. The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation. This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works</disclaimer>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+		<news></news>
+	</extension>
+</addon>
+
+<addon id="repository.brianhornsby" name="Brian Hornsby's Repository" version="1.0.0" provider-name="brianhornsby">
+	<extension point="xbmc.addon.repository" name="Brian Hornsby's Repository">
+		<info>https://raw.githubusercontent.com/brianhornsby/repository.brianhornsby/master/repository.xml</info>
+		<checksum>https://raw.githubusercontent.com/brianhornsby/repository.brianhornsby/master/repository.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/brianhornsby/repository.brianhornsby/master/releases/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Repository for Brian Hornsby's Kodi add-ons and scripts.</summary>
+		<description>Repository for Brian Hornsby's Kodi add-ons and scripts. Add-ons: BBC iPlayer and TuneIn Radio. Scripts: OpenVPN and SimilarTracks.</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+</addons>
