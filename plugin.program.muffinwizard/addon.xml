@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.aftermath" name="[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard" version="0.5.0" provider-name="drinfernoo">
+<addon id="plugin.program.muffinwizard" name="Muffin Wizard" version="0.2.2" provider-name="MuffinPi">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
@@ -8,8 +8,9 @@
   </extension>
   <extension point="xbmc.service" library="startup.py" start="startup" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard</summary>
-    <description lang="en">[B][COLOR dodgerblue]Aftermath[/COLOR][/B] Wizard offers many maintenance features, selective add-on data saving, and automated build installs.</description>
+    <summary lang="en">Muffi'n Wizard</summary>
+    <description lang="en">[B][COLOR deeppink]Muffin[/COLOR][COLOR lime]Wizard[/COLOR] allows you to get access to the latest [COLOR yellow]P[/COLOR][COLOR lime]i[/COLOR][COLOR deepskyblue]B[/COLOR][COLOR indigo]o[/COLOR][COLOR red]X[/COLOR] Custom Builds[/B].</description>
+    <disclaimer>The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon. The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation. This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works</disclaimer>
     <platform>all</platform>
   </extension>
 </addon>
